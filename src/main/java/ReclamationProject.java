@@ -7,20 +7,40 @@
  * 4. Add comments and Javadoc comments where needed
  * 5. Remove unnecessary comments as appropriate
  */
+/**
+ * this class use for practice; search for the longest common substring .
+ */
+public class ReclamationProject {
+/**
+ * @param a compare with b and find the largest common substring
+ * @param b compare with a and find the largest common substring
+ * @return longest common substring
+ */
+    public static String longstCoommonSubstri(final String a, final String b) {
+        String longStr = b;
+        // Shortstr is the shorter one compared the other string;
+        String shortStr = a;
+        // Longstr is the longer one compared the other string
+        if (a.length() > b.length()) {
+            longStr = a;
+            shortStr = b;
+        }
+        String r = " ";
+        // loop
+        for (int i = 0; i < longStr.length(); i++) {
+            for (int j = longStr.length() - i; j > 0; j--) {
+                for (int k = 0; k < shortStr.length() - j; k++) {
 
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
-        /*
-         * For loop with i
-         */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
-        } return r; }
+                    if (longStr.regionMatches(i, shortStr, k, j)
+                            && j > r.length()) {
+                        r = longStr.substring(i, i + j);
+
+                    // Do it!
+                        }
+                 }
+        }
+
+        }
+        return r;
+    }
 }
